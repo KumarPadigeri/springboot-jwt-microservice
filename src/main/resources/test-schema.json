@@ -1,0 +1,155 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "1.0.0",
+    "title": "Test API Details",
+    "license": {
+      "name": "###"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081",
+      "description": "Development server"
+    },
+    {
+      "url": "http://localhost:8081",
+      "description": "Staging server"
+    },
+    {
+      "url": "http://localhost:8081",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/test/getAlphabets": {
+      "get": {
+        "summary": "All Alphabets",
+        "operationId": "getAlphabets",
+        "tags": [
+          "test"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paged array of Alphabets ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/test/getLowerAlphabets": {
+      "get": {
+        "summary": "All lower Alphabets",
+        "operationId": "getLowerAlphabets",
+        "tags": [
+          "test"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paged array of Alphabets ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pet/getAnimals": {
+      "get": {
+        "summary": "All animals",
+        "operationId": "getAnimals",
+        "tags": [
+          "pet"
+        ],
+        "responses": {
+          "200": {
+            "description": "A paged array of pet ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ]
+}
