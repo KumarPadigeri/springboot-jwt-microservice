@@ -20,7 +20,7 @@ spring:
         generate_statistics: true
         dialect: org.hibernate.dialect.MySQL8Dialect
   application:
-    name: springboot-aws-services
+    name: springboot-jwt-microservice
 logging:
   level:
     org:
@@ -36,7 +36,7 @@ management:
 server:
   port: 8081
   servlet:
-    contextPath: /springboot-aws-services
+    contextPath: /springboot-jwt-microservice
 springdoc:
   show-actuator: true
   swagger-ui:
@@ -52,6 +52,9 @@ springdoc:
       paths-to-match: /management/**
     - group: Animal APIs
       paths-to-match: /pet/**
+    - group: JWT APIs
+      paths-to-match: /jwt/**
+
 application:
   auth:
     roles:
@@ -61,5 +64,5 @@ application:
       ADMIN:
         username: ${ADMIN_USERNAME}
         password: ${ADMIN_PWD}
-#http://localhost:8081/springboot-aws-services/documentation
-#http://localhost:8081/springboot-aws-services/swagger-ui/index.html
+#http://localhost:8081/springboot-jwt-microservice/documentation
+#http://localhost:8081/springboot-jwt-microservice/swagger-ui/index.html
